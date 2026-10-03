@@ -12,3 +12,15 @@ export const isAuthenticated = async (req, res, next) => {
     });
   }
 };
+
+export const checkRole = (...allowedRoles) => {
+  return async (req, res, next) => {
+    if (!req.user) {
+      return res.status(401).json({ message: "Authentification requise" });
+    }
+    if (!allowedRoles.includes(req.user.role)) {
+      return res.status(403).json({ message: "Autorisation requise" });
+    }
+    return next();
+  };
+};

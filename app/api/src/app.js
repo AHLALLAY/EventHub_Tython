@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import authRoute from "./routes/authRoutes.js";
+import eventRoute from "./routes/eventRoutes.js";
 import "dotenv/config";
 
 const app = express();
@@ -17,5 +18,6 @@ app.use(
 const apiBase = process.env.API_BASE_URL;
 
 app.use(`${apiBase}/auth`, authRoute);
+app.use(`${apiBase}/events`, eventRoute);
 
 export default app;
