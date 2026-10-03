@@ -3,6 +3,7 @@ import cors from "cors";
 import authRoute from "./routes/authRoutes.js";
 import eventRoute from "./routes/eventRoutes.js";
 import "dotenv/config";
+import participantRoute from "./routes/participantRoutes.js";
 
 const app = express();
 
@@ -19,5 +20,6 @@ const apiBase = process.env.API_BASE_URL;
 
 app.use(`${apiBase}/auth`, authRoute);
 app.use(`${apiBase}/events`, eventRoute);
+app.use(`${apiBase}/participants`, participantRoute);
 
 export default app;

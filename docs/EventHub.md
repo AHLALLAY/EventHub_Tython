@@ -4,7 +4,7 @@
 
 Développer une application web (**PERN Stack** : PostgreSQL, Express, React, Node.js) permettant de gérer :
 
-- [ ] des événements (création et publication)
+- [x] des événements (création et publication)
 - [ ] des participants
 - [ ] des inscriptions
 - [ ] un dashboard simple (statistiques)
@@ -17,10 +17,10 @@ Merci de fournir :
   - [x] Schéma DB (ERD) ou document de conception
   - [x] Tables + relations (PK/FK)
   - [x] Contraintes importantes et index recommandés.
-- [ ] **Backend**
-  - [ ] API REST Node.js + Express
-  - [ ] Validation des entrées
-  - [ ] Authentication JWT.
+- [x] **Backend**
+  - [x] API REST Node.js + Express
+  - [x] Validation des entrées
+  - [x] Authentication JWT.
 - [ ] **Frontend**
   - [x] React (Vite recommandé)
   - [ ] Interface fonctionnelle (liste / détails / création).
@@ -34,9 +34,9 @@ Merci de fournir :
 ### Backend (obligatoire)
 
 - [x] Node.js + Express
-- [ ] JWT + bcrypt
-- [ ] Validation : Zod / Joi / express-validator
-- [ ] Gestion d’erreurs claire (400 / 401 / 403 / 404 / 500)
+- [x] JWT + bcrypt
+- [x] Validation : Zod / Joi / express-validator
+- [x] Gestion d’erreurs claire (400 / 401 / 403 / 404 / 500)
 
 ### Base de données (obligatoire)
 
@@ -58,9 +58,9 @@ Merci de fournir :
 - [ ] Rôles :
   - [ ] `admin` : gestion complète (événements + utilisateurs)
   - [ ] `staff` : gestion des événements + inscriptions
-- [ ] Endpoints minimum :
-  - [ ] `POST: /api/auth/login`
-  - [ ] `GET: /api/auth/me`
+- [x] Endpoints minimum :
+  - [x] `POST: /api/auth/login`
+  - [x] `GET: /api/auth/me`
 
 ### 4.2 Gestion des Événements
 
@@ -72,12 +72,12 @@ Merci de fournir :
   - [x] `maxParticipants`
   - [x] `status` : `draft` , `published` , `cancelled`
   - [x] `createdBy`
-- [ ] Fonctions :
-  - [ ] Créer événement
-  - [ ] Modier événement
-  - [ ] Publier (passer `draft` → `published` )
-  - [ ] Liste des événements + ltre par statut
-  - [ ] Détail d’un événement
+- [x] Fonctions :
+  - [x] Créer événement
+  - [x] Modifier événement
+  - [x] Publier (passer `draft` → `published` )
+  - [x] Liste des événements + Filtre par statut
+  - [x] Détail d’un événement
 
 > ✅ **Règle métier obligatoire :**
 > Impossible d’inscrire un participant sur un événement non publié.
@@ -93,8 +93,8 @@ Merci de fournir :
 
 **Fonctions :**
 
-- [ ] CRUD participants
-- [ ] Recherche par `fullName` ou `email`
+- [x] CRUD participants
+- [x] Recherche par `fullName` ou `email`
 
 ### 4.4 Gestion des Inscriptions
 
@@ -141,17 +141,17 @@ Le candidat doit livrer un ERD + tables minimales recommandées :
 
 ### Events
 
-- [ ] `POST /api/events`
-- [ ] `GET /api/events?status=&date=`
-- [ ] `GET /api/events/:id`
-- [ ] `PUT /api/events/:id`
-- [ ] `PATCH /api/events/:id/status`
+- [x] `POST /api/events`
+- [x] `GET /api/events?status=&date=`
+- [x] `GET /api/events/:id`
+- [x] `PUT /api/events/:id`
+- [x] `PATCH /api/events/:id/status`
 
 ### Participants
 
-- [ ] `POST /api/participants`
-- [ ] `GET /api/participants?search=`
-- [ ] `PUT /api/participants/:id`
+- [x] `POST /api/participants`
+- [x] `GET /api/participants?search=`
+- [x] `PUT /api/participants/:id`
 
 ### Registrations
 
@@ -174,10 +174,10 @@ Pages minimum :
 
 Inclure :
 
-- [ ] 1 admin + 1 staff
-- [ ] 5 événements (draft/published/cancelled)
-- [ ] 10 participants
-- [ ] 20 inscriptions (différents statuts)
+- [x] 1 admin + 1 staff
+- [x] 5 événements (draft/published/cancelled)
+- [x] 10 participants
+- [x] 20 inscriptions (différents statuts)
 
 ## 10) Bonus (facultatif)
 
