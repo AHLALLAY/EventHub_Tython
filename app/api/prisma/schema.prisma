@@ -1,0 +1,91 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum UserRole {
+  admin
+  staff
+
+  @@map("user_role")
+}
+
+enum EventStatus {
+  draft
+  published
+  cancelled
+
+  @@map("event_status")
+}
+
+enum RegistrationStatus {
+  pending
+  confirmed
+  cancelled
+
+  @@map("registration_status")
+}
+
+model User {
+  id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  email        String   @unique @db.VarChar
+  passwordHash String   @db.VarChar
+  fullName     String   @db.VarChar
+  role         UserRole
+  createdAt    DateTime @default(now()) @db.Timestamptz(6)
+
+  events Event[]
+
+  @@map("users")
+}
+
+model Event {
+  id              String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  title           String      @db.VarChar
+  description     String?
+  location        String      @db.VarChar
+  eventDate       DateTime    @db.Timestamptz(6)
+  maxParticipants Int
+  status          EventStatus @default(draft)
+  createdBy       String      @db.Uuid
+  createdAt       DateTime    @default(now()) @db.Timestamptz(6)
+  updatedAt       DateTime    @default(now()) @updatedAt @db.Timestamptz(6)
+
+  creator       User           @relation(fields: [createdBy], references: [id], onDelete: Restrict)
+  registrations Registration[]
+
+  @@index([status])
+  @@index([eventDate])
+  @@map("events")
+}
+
+model Participant {
+  id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  fullName  String   @db.VarChar
+  email     String   @unique @db.VarChar
+  phone     String?  @db.VarChar
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+
+  registrations Registration[]
+
+  @@map("participants")
+}
+
+model Registration {
+  id            String             @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  eventId       String             @db.Uuid
+  participantId String             @db.Uuid
+  status        RegistrationStatus @default(pending)
+  createdAt     DateTime           @default(now()) @db.Timestamptz(6)
+
+  event       Event       @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  participant Participant @relation(fields: [participantId], references: [id], onDelete: Cascade)
+
+  @@unique([eventId, participantId])
+  @@index([eventId, status])
+  @@index([createdAt])
+  @@map("registrations")
+}
