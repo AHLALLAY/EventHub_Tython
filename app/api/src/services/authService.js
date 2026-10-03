@@ -27,7 +27,7 @@ class AuthService {
         role: user.role,
       },
       process.env.JWT_SECRET,
-      { expiresIn: process.env.EXPIRES_IN },
+      { expiresIn: process.env.JWT_EXPIRES_IN },
     );
 
     return {
@@ -39,26 +39,6 @@ class AuthService {
         role: user.role,
       },
     };
-  }
-
-  async me(userId) {
-    const user = prisma.user.findUnique({
-      where: { id: userId },
-      select: {
-        id: true,
-        email: true,
-        fullName: true,
-        role: true,
-        createdAt: true,
-      },
-    });
-
-    if (!user) {
-      const error = new Error("Utilisateur introuvable");
-      error.statusCode = 404;
-      throw error;
-    }
-    return user;
   }
 }
 export default new AuthService();
