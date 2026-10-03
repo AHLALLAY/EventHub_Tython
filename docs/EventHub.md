@@ -5,8 +5,8 @@
 Développer une application web (**PERN Stack** : PostgreSQL, Express, React, Node.js) permettant de gérer :
 
 - [x] des événements (création et publication)
-- [ ] des participants
-- [ ] des inscriptions
+- [x] des participants
+- [x] des inscriptions
 - [ ] un dashboard simple (statistiques)
 
 ## 2) Livrables attendus
@@ -57,7 +57,7 @@ Merci de fournir :
 
 - [ ] Rôles :
   - [ ] `admin` : gestion complète (événements + utilisateurs)
-  - [ ] `staff` : gestion des événements + inscriptions
+  - [x] `staff` : gestion des événements + inscriptions
 - [x] Endpoints minimum :
   - [x] `POST: /api/auth/login`
   - [x] `GET: /api/auth/me`
@@ -109,9 +109,9 @@ Un participant peut s’inscrire à plusieurs événements (relation N-N).
 
 > ✅ **Règles métier obligatoires :**
 >
-> - [ ] Un participant ne peut pas s’inscrire 2 fois au même événement
-> - [ ] Ne pas dépasser `maxParticipants` (si complet → bloquer inscription)
-> - [ ] Quand un événement est `cancelled`, toutes les inscriptions passent en `cancelled`
+> - [x] Un participant ne peut pas s’inscrire 2 fois au même événement
+> - [x] Ne pas dépasser `maxParticipants` (si complet → bloquer inscription)
+> - [x] Quand un événement est `cancelled`, toutes les inscriptions passent en `cancelled`
 
 ## 5) Dashboard (obligatoire)
 
@@ -155,9 +155,9 @@ Le candidat doit livrer un ERD + tables minimales recommandées :
 
 ### Registrations
 
-- [ ] `POST /api/registrations`
-- [ ] `GET /api/registrations?eventId=&status=`
-- [ ] `PATCH /api/registrations/:id/status`
+- [x] `POST /api/registrations`
+- [x] `GET /api/registrations?eventId=&status=`
+- [x] `PATCH /api/registrations/:id/status`
 
 ## 8) Frontend React (obligatoire)
 

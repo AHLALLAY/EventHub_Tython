@@ -1,4 +1,6 @@
 import prisma from "../config/prisma.js";
+import registrationService from "./registrationService.js";
+
 class EventService {
   async createEvent(event) {
     return await prisma.event.create({ data: event });
@@ -19,7 +21,6 @@ class EventService {
         gte: start,
         lt: end,
       };
-
     }
     return await prisma.event.findMany({
       where,
@@ -41,10 +42,15 @@ class EventService {
   }
 
   async updateEventStatus(eventId, status) {
-    return await prisma.event.update({
+    const event = await prisma.event.update({
       where: { id: eventId },
       data: { status },
     });
+
+    if (status === "cancelled") {
+      await registrationService.cancelAllByEventId(eventId);
+    }
+    return event;
   }
 }
 
