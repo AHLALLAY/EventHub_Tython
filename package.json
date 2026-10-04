@@ -1,0 +1,15 @@
+{
+  "name": "eventhub",
+  "private": true,
+  "version": "1.0.0",
+  "description": "EventHub — lancer API + frontend ensemble",
+  "scripts": {
+    "dev": "concurrently -n api,web -c teal,magenta \"npm run dev --prefix app/api\" \"npm run dev --prefix app/web\"",
+    "dev:api": "npm run dev --prefix app/api",
+    "dev:web": "npm run dev --prefix app/web",
+    "install:all": "npm install --prefix app/api && npm install --prefix app/web && npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
