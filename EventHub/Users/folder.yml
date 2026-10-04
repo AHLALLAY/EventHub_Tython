@@ -1,0 +1,12 @@
+info:
+  name: Users
+  type: folder
+  seq: 6
+
+request:
+  headers:
+    - name: Content-Type
+      value: application/json
+  auth:
+    type: bearer
+    token: "{{token}}"

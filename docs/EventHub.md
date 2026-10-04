@@ -7,7 +7,7 @@ Développer une application web (**PERN Stack** : PostgreSQL, Express, React, No
 - [x] des événements (création et publication)
 - [x] des participants
 - [x] des inscriptions
-- [ ] un dashboard simple (statistiques)
+- [x] un dashboard simple (statistiques)
 
 ## 2) Livrables attendus
 
@@ -55,12 +55,15 @@ Merci de fournir :
 
 ### 4.1 Authentication & rôles
 
-- [ ] Rôles :
-  - [ ] `admin` : gestion complète (événements + utilisateurs)
+- [x] Rôles :
+  - [x] `admin` : gestion complète (événements + utilisateurs)
   - [x] `staff` : gestion des événements + inscriptions
 - [x] Endpoints minimum :
   - [x] `POST: /api/auth/login`
   - [x] `GET: /api/auth/me`
+- [x] Gestion utilisateurs (admin) :
+  - [x] `POST: /api/users`
+  - [x] `GET: /api/users`
 
 ### 4.2 Gestion des Événements
 
@@ -115,12 +118,16 @@ Un participant peut s’inscrire à plusieurs événements (relation N-N).
 
 ## 5) Dashboard (obligatoire)
 
-Acher au minimum :
+Afficher au minimum :
 
-- [ ] nombre total d’événements
-- [ ] nombre d’événements publiés
-- [ ] inscriptions du jour
-- [ ] top 5 événements les plus remplis
+- [x] nombre total d’événements
+- [x] nombre d’événements publiés
+- [x] inscriptions du jour
+- [x] top 5 événements les plus remplis
+
+Endpoint :
+
+- [x] `GET /api/dashboard/stats`
 
 ## 6) Conception Base de Données (obligatoire)
 
@@ -138,6 +145,16 @@ Le candidat doit livrer un ERD + tables minimales recommandées :
 - [x] FK cohérentes + index utiles
 
 ## 7) API REST minimale attendue
+
+### Auth
+
+- [x] `POST /api/auth/login`
+- [x] `GET /api/auth/me`
+
+### Users (admin)
+
+- [x] `POST /api/users`
+- [x] `GET /api/users`
 
 ### Events
 
@@ -158,6 +175,10 @@ Le candidat doit livrer un ERD + tables minimales recommandées :
 - [x] `POST /api/registrations`
 - [x] `GET /api/registrations?eventId=&status=`
 - [x] `PATCH /api/registrations/:id/status`
+
+### Dashboard
+
+- [x] `GET /api/dashboard/stats`
 
 ## 8) Frontend React (obligatoire)
 

@@ -1,0 +1,28 @@
+info:
+  name: add user
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{BASE_URL}}/users"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "email": "new.staff@eventhub.com",
+        "password": "Staff123!",
+        "fullName": "Nouveau Staff",
+        "role": "staff"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: true
