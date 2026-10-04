@@ -1,0 +1,22 @@
+info:
+  name: update event status
+  type: http
+  seq: 6
+
+http:
+  method: PATCH
+  url: "{{BASE_URL}}/events/{{eventId}}/status"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: '{ "status": "published" }'
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: true

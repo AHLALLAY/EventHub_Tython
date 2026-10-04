@@ -1,0 +1,33 @@
+info:
+  name: login
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{BASE_URL}}/auth/login"
+  body:
+    type: json
+    data: |-
+      {
+        "email": "staff@eventhub.com",
+        "password": "Staff123!"
+      }
+
+runtime:
+  variables:
+    - name: BASE_URL
+      value: http://localhost:3000/api
+  scripts:
+    - type: after-response
+      code: |-
+        if (res.status === 200 && res.body && res.body.token) {
+          bru.setEnvVar("token", res.body.token);
+        }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: true

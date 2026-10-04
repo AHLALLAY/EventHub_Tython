@@ -1,0 +1,14 @@
+info:
+  name: Participants
+  type: folder
+  seq: 3
+
+request:
+  headers:
+    - name: Content-Type
+      value: application/json
+    - name: Authorization
+      value: application/json
+  auth:
+    type: bearer
+    token: "{{token}}"

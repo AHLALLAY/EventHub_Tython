@@ -1,0 +1,17 @@
+name: Local
+variables:
+  - name: BASE_URL
+    value: http://localhost:3000/api
+    description: Base URL de l'API EventHub
+  - name: eventId
+    value: 8b76c020-41d5-4b0e-b4be-fd9393367fe2
+    description: ID d'événement de test
+  - name: participantId
+    value: 5d20b812-e69c-4e03-9663-90d7aaaa9783
+    description: ID de participant de test
+  - name: registrationId
+    value: ""
+    description: ID d'inscription de test
+  - secret: true
+    name: token
+    description: JWT obtenu après un login réussi

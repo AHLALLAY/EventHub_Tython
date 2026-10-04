@@ -1,0 +1,26 @@
+info:
+  name: add participant
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{BASE_URL}}/participants"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "fullName": "Test User",
+        "email": "test.user2@example.com"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: true

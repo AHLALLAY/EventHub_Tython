@@ -1,0 +1,28 @@
+info:
+  name: add events
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{BASE_URL}}/events"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "title": "Test Event",
+        "location": "Casablanca",
+        "eventDate": "2026-11-01T10:00:00.000Z",
+        "maxParticipants": 50
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: true

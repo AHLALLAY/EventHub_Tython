@@ -1,0 +1,9 @@
+info:
+  name: Registrations
+  type: folder
+  seq: 4
+
+http:
+  auth:
+    type: bearer
+    token: "{{token}}"
