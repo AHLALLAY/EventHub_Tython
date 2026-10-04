@@ -21,9 +21,9 @@ Merci de fournir :
   - [x] API REST Node.js + Express
   - [x] Validation des entrées
   - [x] Authentication JWT.
-- [ ] **Frontend**
+- [x] **Frontend**
   - [x] React (Vite recommandé)
-  - [ ] Interface fonctionnelle (liste / détails / création).
+  - [x] Interface fonctionnelle (liste / détails / création).
 - [x] **PostgreSQL**
   - [x] Script SQL ou migrations.
 - [x] **README**
@@ -48,8 +48,8 @@ Merci de fournir :
 ### Frontend (obligatoire)
 
 - [x] React + Vite
-- [ ] Consommation API REST
-- [ ] UI simple et propre (Tailwind optionnel)
+- [x] Consommation API REST
+- [x] UI simple et propre (Tailwind optionnel)
 
 ## 4) Fonctionnalités demandées
 
@@ -184,12 +184,20 @@ Le candidat doit livrer un ERD + tables minimales recommandées :
 
 Pages minimum :
 
-- [ ] Login
-- [ ] Dashboard
-- [ ] Liste événements + ltres
-- [ ] Détails événement (avec liste inscriptions)
-- [ ] Page participants
-- [ ] Form inscription participant → événement
+- [x] Login
+- [x] Dashboard
+- [x] Liste événements + filtres
+- [x] Détails événement (avec liste inscriptions)
+- [x] Page participants
+- [x] Form inscription participant → événement
+
+Pages / actions complémentaires :
+
+- [x] Création / modification d’événement + publication / annulation
+- [x] Modification statut d’inscription
+- [x] Page utilisateurs (admin) — liste + création
+- [x] AuthContext + JWT + routes protégées
+- [x] UI Tailwind
 
 ## 9) Données de test (seed)
 
