@@ -19,6 +19,7 @@ const emptyForm = {
 
 export default function Events() {
   const [status, setStatus] = useState("");
+  const [date, setDate] = useState("");
   const [events, setEvents] = useState([]);
   const [error, setError] = useState("");
   const [showForm, setShowForm] = useState(false);
@@ -26,7 +27,10 @@ export default function Events() {
   const [saving, setSaving] = useState(false);
 
   const load = () => {
-    const q = status ? `?status=${status}` : "";
+    const params = new URLSearchParams();
+    if (status) params.set("status", status);
+    if (date) params.set("date", date);
+    const q = params.toString() ? `?${params.toString()}` : "";
     api(`/events${q}`)
       .then(setEvents)
       .catch((e) => setError(e.message));
@@ -34,7 +38,7 @@ export default function Events() {
 
   useEffect(() => {
     load();
-  }, [status]);
+  }, [status, date]);
 
   const onChange = (e) => {
     const { name, value } = e.target;
@@ -74,11 +78,26 @@ export default function Events() {
             onChange={(e) => setStatus(e.target.value)}
             className="rounded-md border border-slate-300 bg-white px-3 py-2 text-sm outline-none focus:border-teal-600 focus:ring-1 focus:ring-teal-600"
           >
-            <option value="">Tous</option>
+            <option value="">Tous les statuts</option>
             <option value="draft">draft</option>
             <option value="published">published</option>
             <option value="cancelled">cancelled</option>
           </select>
+          <input
+            type="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            className="rounded-md border border-slate-300 bg-white px-3 py-2 text-sm outline-none focus:border-teal-600 focus:ring-1 focus:ring-teal-600"
+          />
+          {date && (
+            <button
+              type="button"
+              onClick={() => setDate("")}
+              className="rounded-md border border-slate-300 bg-white px-3 py-2 text-sm hover:bg-slate-100"
+            >
+              Effacer date
+            </button>
+          )}
           <button
             type="button"
             onClick={() => setShowForm((v) => !v)}
