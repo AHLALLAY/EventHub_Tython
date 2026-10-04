@@ -6,6 +6,7 @@ import "dotenv/config";
 import participantRoute from "./routes/participantRoutes.js";
 import registrationRoute from "./routes/registrationRoutes.js";
 import statisticsRoute from "./routes/statisticsRoutes.js";
+import userRoute from "./routes/userRoutes.js";
 
 const app = express();
 
@@ -25,5 +26,6 @@ app.use(`${apiBase}/events`, eventRoute);
 app.use(`${apiBase}/participants`, participantRoute);
 app.use(`${apiBase}/registrations`, registrationRoute);
 app.use(`${apiBase}/dashboard/stats`, statisticsRoute);
+app.use(`${apiBase}/users`, userRoute);
 
 export default app;
